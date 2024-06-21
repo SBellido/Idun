@@ -6,6 +6,7 @@ import { TabBarIcon } from '@/components/navigation/TabBarIcon';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { CreateAccountScreen } from '@/app/(tabs)/CreateAccountScreen';
+import { TabLabel } from '@/components/TabLabel';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -19,34 +20,31 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Iniciar sesión',
+          tabBarLabel: ({ color }) => <TabLabel title="INICIAR SESIÓN" color={color} />,
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="learIdun"
-
-        options={{
-          title: '',
-          tabBarIcon: ({ color, focused }) => (
-            <Image
-              source={require('@/assets/images/isologo.png')}
-              style={{ width: 100, height: 100, marginBottom: 50 }} // Ajusta el tamaño y el color según tus necesidades
-            />
-          ),
-        }}
-      />
-      <Tabs.Screen
         name="account"
         options={{
-          title: 'Crear cuenta',
+          tabBarLabel: ({ color }) => <TabLabel title="CREAR CUENTA" color={color} />,
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name={focused ? 'person' : 'person-outline'} color={color} />
           ),
         }}
       />
+      <Tabs.Screen
+        name="learIdun"
+        options={{
+          tabBarLabel: ({ color }) => <TabLabel title="SABER MÁS" color={color} />,
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon name={focused ? 'bulb' : 'bulb-outline'} color={color} />
+          ),
+        }}
+      />
+
     </Tabs>
   );
 }

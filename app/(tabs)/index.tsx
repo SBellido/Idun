@@ -9,6 +9,8 @@ import { useValidationSchema } from '@/hooks/useValidationSchema';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { Title } from '@/components/Title';
+import { LogoContainer } from '@/components/LogoContainer';
 
 export default function LoginForm() {
   const navigation = useNavigation();
@@ -33,18 +35,10 @@ export default function LoginForm() {
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#FFF', dark: '#90FD9B' }}
-      headerImage={
-        <View style={styles.imageContainer}>
-          <Image
-            source={require('@/assets/images/idunLogo_.png')}
-            style={styles.idunLogo}
-          />
-        </View>
-      }>
+      headerImage={<LogoContainer />}
+    >
       <View style={styles.formContainer}>
-        <ThemedView style={styles.titleContainer}>
-          <ThemedText style={styles.title} type="title">Iniciar sesión</ThemedText>
-        </ThemedView>
+        <Title title={'Iniciar sesión'} />
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
@@ -90,30 +84,6 @@ export default function LoginForm() {
 }
 
 const styles = StyleSheet.create({
-  imageContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-  },
-  idunLogo: {
-    width: 120,
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  titleContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 20,
-  },
-  title: {
-    tintColor: '#FFF',
-    fontSize: 30,
-    fontWeight: 'light',
-    color: '#041448',
-  },
   formContainer: {
     flex: 1,
     justifyContent: 'center',
