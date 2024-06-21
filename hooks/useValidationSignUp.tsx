@@ -2,7 +2,7 @@ import * as yup from 'yup';
 
 export const useValidationSignUp = () => {
   return yup.object().shape({
-    email: yup.string().email('Email inválido').required('El Email es requerido'),
+    email: yup.string().email('Email inválido').required('El email es requerido'),
     password: yup.string()
       .min(6, 'La contraseña debe tener al menos 6 caracteres')
       .matches(/[A-Z]/, 'La contraseña debe contener al menos una letra mayúscula')
@@ -12,7 +12,7 @@ export const useValidationSignUp = () => {
       .nullable()
       .oneOf([yup.ref('email'), null], 'Los emails no coinciden')
       .email('Email inválido')
-      .required('Repetir el Email es obligatorio'),
+      .required('Repetir el email es obligatorio'),
     repeatPassword: yup.string()
       .nullable()
       .oneOf([yup.ref('password'), null], 'Las contraseñas no coinciden')

@@ -27,7 +27,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="account"
+        name="signUp"
         options={{
           tabBarLabel: ({ color }) => <TabLabel title="Crear cuenta" color={color} />,
           tabBarIcon: ({ color, focused }) => (
@@ -36,7 +36,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="learIdun"
+        name="learnIdun"
         options={{
           tabBarLabel: ({ color }) => <TabLabel title="Saber más" color={color} />,
           tabBarIcon: ({ color, focused }) => (

@@ -79,7 +79,7 @@ export default function LoginForm() {
             Si aún no estas registrado
           </Text>
           <ButtonCancel
-            onPress={() => router.push('./(tabs)/account')}
+            onPress={() => router.push('./(tabs)/signUp')}
             title="Crear cuenta"
           />
         </View>

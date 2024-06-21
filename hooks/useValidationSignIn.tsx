@@ -2,7 +2,7 @@ import * as yup from 'yup';
 
 export const useValidationSignIn = () => {
   return yup.object().shape({
-    email: yup.string().email('Email inválido').required('El Email es requerido'),
+    email: yup.string().email('Email inválido').required('El email es requerido'),
     password: yup.string()
       .min(6, 'La contraseña debe tener al menos 6 caracteres')
       .matches(/[A-Z]/, 'La contraseña debe contener al menos una letra mayúscula')
