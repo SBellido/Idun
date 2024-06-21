@@ -1,50 +1,27 @@
-# Welcome to your Expo app 👋
+# IDUN: Tu Compañera de Bienestar Personal
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+IDUN es una innovadora aplicación móvil diseñada para inspirar a las personas a llevar una vida equilibrada y llena de sorpresas, al tiempo que promueve la actividad física y la movilidad sostenible. Inspirada en la diosa nórdica de la juventud y la renovación, IDUN ofrece desafíos personalizados que invitan a los usuarios a recorrer ciertas distancias a pie o en bicicleta, utilizando la geolocalización para registrar su progreso y ofrecer una experiencia interactiva y gratificante.
 
-## Get started
+## Características Principales
 
-1. Install dependencies
+- **Desafíos Personalizados**: IDUN ofrece una variedad de desafíos adaptados a las preferencias y objetivos de cada usuario. Desde caminatas cortas hasta recorridos en bicicleta más largos, hay desafíos para todos los niveles de actividad.
+- **Recompensa Variable Intermitente (RVI)**: Además de los desafíos, IDUN ofrece recompensas emocionantes a través de su característica de Recompensa Variable Intermitente. Los usuarios pueden recibir sorpresas y beneficios inesperados al completar sus objetivos de movimiento, añadiendo emoción y motivación adicional para participar en la aplicación.
+- **Exploración y Descubrimiento**: Con una interfaz intuitiva y fácil de usar, IDUN anima a los usuarios a explorar su entorno, descubrir nuevas rutas y conectar con la comunidad mientras trabajan hacia una vida más activa y saludable.
 
-   ```bash
-   npm install
-   ```
+## Tecnologías Utilizadas
 
-2. Start the app
+- **Plataforma de Desarrollo Móvil**: IDUN utiliza React Native para una amplia cobertura de dispositivos, lo que permite desarrollar aplicaciones para iOS y Android utilizando un único código base.
+- **Backend y Autenticación de Usuarios**: Firebase maneja la lógica de usuario, almacenamiento de datos, autenticación y gestión de logros. Firebase Authentication garantiza la seguridad de los usuarios mientras Firestore almacena los datos de la aplicación.
+- **Geolocalización**: Se utilizan las API de geolocalización de React Native para activar la geolocalización y rastrear la actividad del usuario.
+- **Notificaciones Push**: Firebase Cloud Messaging (FCM) se integra para enviar notificaciones a los usuarios cuando completen desafíos o reciban recompensas.
+- **Compartir en Redes Sociales**: Se implementan las API de redes sociales para permitir que los usuarios compartan sus logros en redes sociales y puedan invitar a otros usuarios a participar en desafíos.
 
-   ```bash
-    npx expo start
-   ```
+## Cómo Descargar e Inicializar el Proyecto
 
-In the output, you'll find options to open the app in a
+1. **Clona el Repositorio**: `git clone <url_del_repositorio>`
+2. **Instala las Dependencias**: `cd IDUN && npm install`
+3. **Inicia la Aplicación**: `npm start`
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Esto iniciará el servidor de desarrollo de Expo. Desde aquí, puedes escanear el código QR con la aplicación Expo Go en tu dispositivo móvil para ver la aplicación en acción.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+¡Disfruta de tu experiencia con IDUN y mantente activo y saludable!

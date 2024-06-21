@@ -1,9 +1,11 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
+import { Image } from 'react-native';
 
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { CreateAccountScreen } from '@/app/(tabs)/CreateAccountScreen';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -17,18 +19,31 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
+          title: 'Iniciar sesión',
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="learIdun"
+
         options={{
-          title: 'Explore',
+          title: '',
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
+            <Image
+              source={require('@/assets/images/isologo.png')}
+              style={{ width: 100, height: 100, marginBottom: 50 }} // Ajusta el tamaño y el color según tus necesidades
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="account"
+        options={{
+          title: 'Crear cuenta',
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon name={focused ? 'person' : 'person-outline'} color={color} />
           ),
         }}
       />
