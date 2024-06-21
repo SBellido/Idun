@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-export const useValidationSchema = () => {
+export const useValidationSignUp = () => {
   return yup.object().shape({
     email: yup.string().email('Email inválido').required('El Email es requerido'),
     password: yup.string()
@@ -18,5 +18,5 @@ export const useValidationSchema = () => {
       .oneOf([yup.ref('password'), null], 'Las contraseñas no coinciden')
       .required('Repetir la contraseña es obligatorio'),
   });
-  
+
 }

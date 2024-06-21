@@ -55,14 +55,14 @@ const Input: React.FC<InputProps> = ({
 
 const styles = StyleSheet.create({
   inputContainer: {
-    width: 330,
+    width: 300,
     marginBottom: 10,
   },
   input: {
     width: '100%',
     height: 50,
     borderWidth: 1,
-    borderColor: '#041448',
+    borderColor: '#7DA2D6',
     borderRadius: 12,
     paddingHorizontal: 10,
     backgroundColor: "#FFF",

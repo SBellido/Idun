@@ -22,7 +22,7 @@ const HeaderIdun: React.FC = () => {
 const styles = StyleSheet.create({
   idunLogo: {
     marginTop: 70,
-    height: 170,
+    height: 150,
     alignSelf: 'center',
   },
 });

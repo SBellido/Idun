@@ -5,7 +5,7 @@ import { Formik } from 'formik';
 import { Input } from '@/components/Input';
 import { Checkbox } from '@/components/Checkbox';
 import { ButtonConfirm } from '@/components/ButtonConfirm';
-import { useValidationSchema } from '@/hooks/useValidationSchema';
+import { useValidationSignUp } from '@/hooks/useValidationSignUp';
 import { ButtonCancel } from '@/components/ButtonCancel';
 import { HeaderIdun } from '@/components/HeaderIdun';
 
@@ -14,7 +14,7 @@ function CreateAccountScreen() {
   const navigation = useNavigation();
   const [secureTextEntry, setSecureTextEntry] = useState(true);
   const [acceptTerms, setAcceptTerms] = useState(false);
-  const validationSchema = useValidationSchema();
+  const validationSignUp = useValidationSignUp();
 
   // const [isFormValid, setIsFormValid] = useState(false);
 
@@ -47,7 +47,7 @@ function CreateAccountScreen() {
       <Text style={styles.title}>Crear cuenta</Text>
       <Formik
         initialValues={initialValues}
-        validationSchema={validationSchema}
+        validationSchema={useValidationSignUp}
         onSubmit={handleSignUp}
         validateOnChange={true}
         validateOnBlur={true}

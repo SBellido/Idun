@@ -20,7 +20,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          tabBarLabel: ({ color }) => <TabLabel title="INICIAR SESIÓN" color={color} />,
+          tabBarLabel: ({ color }) => <TabLabel title="Iniciar sesión" color={color} />,
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
           ),
@@ -29,7 +29,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="account"
         options={{
-          tabBarLabel: ({ color }) => <TabLabel title="CREAR CUENTA" color={color} />,
+          tabBarLabel: ({ color }) => <TabLabel title="Crear cuenta" color={color} />,
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name={focused ? 'person' : 'person-outline'} color={color} />
           ),
@@ -38,7 +38,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="learIdun"
         options={{
-          tabBarLabel: ({ color }) => <TabLabel title="SABER MÁS" color={color} />,
+          tabBarLabel: ({ color }) => <TabLabel title="Saber más" color={color} />,
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name={focused ? 'bulb' : 'bulb-outline'} color={color} />
           ),

@@ -5,7 +5,7 @@ import { Formik } from 'formik';
 import { Input } from '@/components/Input';
 import { ButtonConfirm } from '@/components/ButtonConfirm';
 import { ButtonCancel } from '@/components/ButtonCancel';
-import { useValidationSchema } from '@/hooks/useValidationSchema';
+import { useValidationSignIn } from '@/hooks/useValidationSignIn';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
@@ -15,7 +15,7 @@ import { LogoContainer } from '@/components/LogoContainer';
 export default function LoginForm() {
   const navigation = useNavigation();
   const [secureTextEntry, setSecureTextEntry] = useState(true);
-  const validationSchema = useValidationSchema();
+  const validationSignIn = useValidationSignIn();
 
   const initialValues = {
     email: '',
@@ -41,7 +41,7 @@ export default function LoginForm() {
         <Title title={'Iniciar sesión'} />
         <Formik
           initialValues={initialValues}
-          validationSchema={validationSchema}
+          validationSchema={validationSignIn}
           onSubmit={handleLogin}
           validateOnChange={true}
           validateOnBlur={true}
@@ -74,10 +74,15 @@ export default function LoginForm() {
             </View>
           )}
         </Formik>
-        <ButtonCancel
-          onPress={() => router.push('./(tabs)/account')}
-          title="Crear cuenta"
-        />
+        <View style={styles.cancelContainer}>
+          <Text style={styles.createAccountText}>
+            Si aún no estas registrado
+          </Text>
+          <ButtonCancel
+            onPress={() => router.push('./(tabs)/account')}
+            title="Crear cuenta"
+          />
+        </View>
       </View>
     </ParallaxScrollView>
   );
@@ -88,6 +93,26 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 20,
-  }
+    padding: 30,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    borderRadius: 20,
+    backgroundColor: '#FFF',
+  },
+  cancelContainer: {
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginTop: 30,
+  },
+  createAccountText: {
+    fontSize: 16,
+    color: '#041448',
+  },
 });

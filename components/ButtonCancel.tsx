@@ -17,7 +17,7 @@ const ButtonCancel: React.FC<ButtonCancelProps> = ({ onPress, title }) => {
 const styles = StyleSheet.create({
   buttonBack: {
     backgroundColor: '#FFF',
-    width: 330,
+    width: 300,
     padding: 10,
     borderRadius: 50,
     marginTop: 10,
@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
     height: 50,
     borderColor: '#90FD9B',
     borderWidth: 2,
+    overflow: 'hidden',
   },
   buttonTextBack: {
     color: '#041448',

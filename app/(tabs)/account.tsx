@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { StyleSheet, Image, Platform, View, Text } from 'react-native';
+import { StyleSheet, Image, Platform, View, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from 'expo-router';
 import { Formik } from 'formik';
 import { Input } from '@/components/Input';
 import { Checkbox } from '@/components/Checkbox';
 import { ButtonConfirm } from '@/components/ButtonConfirm';
-import { useValidationSchema } from '@/hooks/useValidationSchema';
+import { useValidationSignUp } from '@/hooks/useValidationSignUp';
 import { ButtonCancel } from '@/components/ButtonCancel';
 import { Collapsible } from '@/components/Collapsible';
 import { ExternalLink } from '@/components/ExternalLink';
@@ -20,7 +20,7 @@ export default function TabTwoScreen() {
   const navigation = useNavigation();
   const [secureTextEntry, setSecureTextEntry] = useState(true);
   const [acceptTerms, setAcceptTerms] = useState(false);
-  const validationSchema = useValidationSchema();
+  const validationSignUp = useValidationSignUp();
 
   // const [isFormValid, setIsFormValid] = useState(false);
 
@@ -56,7 +56,7 @@ export default function TabTwoScreen() {
         <Title title={'Crear cuenta'} />
         <Formik
           initialValues={initialValues}
-          validationSchema={validationSchema}
+          validationSchema={validationSignUp}
           onSubmit={handleSignUp}
           validateOnChange={true}
           validateOnBlur={true}
@@ -115,10 +115,16 @@ export default function TabTwoScreen() {
             );
           }}
         </Formik>
-        <ButtonCancel
-          onPress={() => navigation.goBack()}
-          title="Volver"
-        />
+        <View style={styles.cancelContainer}>
+          <Text style={styles.messageAccount}>
+            Si ya tiene cuenta
+          </Text>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Text style={styles.signIn}>
+              inicia sesión
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </ParallaxScrollView>
   );
@@ -129,6 +135,34 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 20,
+    padding: 30,
+    shadowColor: '#041448',
+    // shadowOffset: {
+    //   width: 0,
+    //   height: -2,
+    // },
+    shadowOpacity: 0.1,
+    shadowRadius: 10,
+    elevation: 5,
+    borderRadius: 20,
+    backgroundColor: '#FFF',
+  },
+  cancelContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginTop: 30,
+  },
+  messageAccount: {
+    fontSize: 16,
+    color: '#041448',
+  },
+  signIn: {
+    fontSize: 16,
+    color: '#00C114',
+    marginLeft: 5,
+    fontWeight: 'bold',
+    borderBottomWidth: 1,
+    borderBottomColor: '#00C114',
   }
 });

@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     marginTop: 50,
   },
   idunLogo: {
-    height: 200,
+    height: 160,
     resizeMode: 'contain',
   },
 });

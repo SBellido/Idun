@@ -4,11 +4,11 @@
     "slug": "idun_app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/isoLogo.png",
+    "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/images/isoLogo.png",
+      "image": "./assets/images/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

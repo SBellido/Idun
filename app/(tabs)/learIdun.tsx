@@ -17,6 +17,9 @@ export default function TabTwoScreen() {
     >
       <View style={styles.formContainer}>
         <Title title={'Saber más'} />
+
+
+
       </View>
 
       <ThemedText>This app includes example code to help you get started.</ThemedText>

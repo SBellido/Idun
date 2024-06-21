@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
   },
   buttonContainer: {
-    width: 330,
+    width: 300,
   },
 });
 
