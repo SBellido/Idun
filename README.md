@@ -24,4 +24,17 @@ IDUN es una innovadora aplicación móvil diseñada para inspirar a las personas
 
 Esto iniciará el servidor de desarrollo de Expo. Desde aquí, puedes escanear el código QR con la aplicación Expo Go en tu dispositivo móvil para ver la aplicación en acción.
 
+## Capturas de Pantalla
+
+- **Iniciar sesión**
+![Captura de Pantalla 1](src/assets/images/screenShots/idun_0.png)
+![Captura de Pantalla 2](src/assets/images/screenShots/idun_00.png)
+
+- **Crar cuenta**
+![Captura de Pantalla 4](src/assets/images/screenShots/idun_1.png)
+![Captura de Pantalla 5](src/assets/images/screenShots/idun_2.png)
+![Captura de Pantalla 6](src/assets/images/screenShots/idun_3.png)
+![Captura de Pantalla 6](src/assets/images/screenShots/idun_4.png)
+
+
 ¡Disfruta de tu experiencia con IDUN y mantente activo y saludable!
