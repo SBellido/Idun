@@ -1,28 +1,23 @@
 import React, { useState } from 'react';
-import Ionicons from '@expo/vector-icons/Ionicons';
-import { StyleSheet, Image, Platform, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, Alert } from 'react-native';
 import { useNavigation } from 'expo-router';
 import { Formik } from 'formik';
 import { Input } from '@/components/Input';
 import { Checkbox } from '@/components/Checkbox';
 import { ButtonConfirm } from '@/components/ButtonConfirm';
 import { useValidationSignUp } from '@/hooks/useValidationSignUp';
-import { ButtonCancel } from '@/components/ButtonCancel';
-import { Collapsible } from '@/components/Collapsible';
-import { ExternalLink } from '@/components/ExternalLink';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
 import { Title } from '@/components/Title';
 import { LogoContainer } from '@/components/LogoContainer';
+import { collection, doc, setDoc } from 'firebase/firestore';
+import { auth, firestore } from '../service/firebase/firebaseConfig'; // Import Firebase
+import { User, createUserWithEmailAndPassword } from 'firebase/auth'; // Importa createUserWithEmailAndPassword
 
 export default function TabTwoScreen() {
   const navigation = useNavigation();
   const [secureTextEntry, setSecureTextEntry] = useState(true);
   const [acceptTerms, setAcceptTerms] = useState(false);
   const validationSignUp = useValidationSignUp();
-
-  // const [isFormValid, setIsFormValid] = useState(false);
 
   const initialValues = {
     email: '',
@@ -31,13 +26,39 @@ export default function TabTwoScreen() {
     repeatPassword: '',
   };
 
-  const handleSignUp = (values: { email: string; repeatEmail: string; password: string; repeatPassword: string }) => {
-    // Implementa tu lógica de registro aquí
+  const handleSignUp = async (values: { email: string; repeatEmail: string; password: string; repeatPassword: string }) => {
+
     console.log('Email:', values.email);
     console.log('Repeat Email:', values.repeatEmail);
     console.log('Password:', values.password);
     console.log('Confirm Password:', values.repeatPassword);
     console.log('Accept Terms:', acceptTerms);
+    if (!acceptTerms) {
+      Alert.alert('Términos y Condiciones', 'Debe aceptar los términos y condiciones para crear una cuenta.');
+      return;
+    }
+
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, values.email, values.password);
+      const user: User | null = userCredential.user;
+
+      if (user) {
+        // const userRef = ref(db, 'users/' + user.uid);
+        const userRef = doc(collection(firestore, 'users'), user.uid);
+
+        await setDoc(userRef, {
+          email: user.email,
+          createdAt: new Date().toISOString(),
+        });
+
+        console.log('Datos del usuario guardados en la base de datos.');
+        Alert.alert('Cuenta creada', 'La cuenta se ha creado correctamente.');
+      }
+    } catch (error) {
+      console.error('Error al crear cuenta:', error);
+      Alert.alert('Error', 'No se pudo crear la cuenta. Por favor, inténtalo de nuevo.');
+    }
+
   };
 
   const toggleSecureEntry = () => {
