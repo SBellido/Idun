@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "148545483885",
+    "project_id": "idun-32aa8",
+    "storage_bucket": "idun-32aa8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:148545483885:android:161934a9e6917bcd07fb64",
+        "android_client_info": {
+          "package_name": "com.mabellstudio.idun"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDg0gk9jvdvHxID-NUQ150yst90nbrBogg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

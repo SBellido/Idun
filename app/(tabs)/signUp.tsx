@@ -13,7 +13,7 @@ import { collection, doc, setDoc } from 'firebase/firestore';
 import { auth, firestore } from '../service/firebase/firebaseConfig'; // Import Firebase
 import { User, createUserWithEmailAndPassword } from 'firebase/auth'; // Importa createUserWithEmailAndPassword
 
-export default function TabTwoScreen() {
+export default function SignUp() {
   const navigation = useNavigation();
   const [secureTextEntry, setSecureTextEntry] = useState(true);
   const [acceptTerms, setAcceptTerms] = useState(false);
@@ -45,6 +45,10 @@ export default function TabTwoScreen() {
       if (user) {
         // const userRef = ref(db, 'users/' + user.uid);
         const userRef = doc(collection(firestore, 'users'), user.uid);
+        console.log('UID:', user.uid);
+
+        const idToken = await user.getIdToken();
+        console.log('ID Token:', idToken);
 
         await setDoc(userRef, {
           email: user.email,
