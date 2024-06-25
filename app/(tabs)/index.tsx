@@ -6,7 +6,7 @@ import { Input } from '@/components/Input';
 import { ButtonConfirm } from '@/components/ButtonConfirm';
 import { ButtonCancel } from '@/components/ButtonCancel';
 import { useValidationSignIn } from '@/hooks/useValidationSignIn';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
+import { ParallaxScrollView } from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { Title } from '@/components/Title';

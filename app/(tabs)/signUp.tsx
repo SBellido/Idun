@@ -2,18 +2,18 @@ import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Alert } from 'react-native';
 import { useNavigation } from 'expo-router';
 import { Formik } from 'formik';
+import { collection, doc, setDoc } from 'firebase/firestore';
+import { auth, firestore } from '../service/firebase/firebaseConfig';
+import { User, createUserWithEmailAndPassword } from 'firebase/auth';
 import { Input } from '@/components/Input';
 import { Checkbox } from '@/components/Checkbox';
 import { ButtonConfirm } from '@/components/ButtonConfirm';
 import { useValidationSignUp } from '@/hooks/useValidationSignUp';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
+import { ParallaxScrollView } from '@/components/ParallaxScrollView';
 import { Title } from '@/components/Title';
 import { LogoContainer } from '@/components/LogoContainer';
-import { collection, doc, setDoc } from 'firebase/firestore';
-import { auth, firestore } from '../service/firebase/firebaseConfig'; // Import Firebase
-import { User, createUserWithEmailAndPassword } from 'firebase/auth'; // Importa createUserWithEmailAndPassword
 
-export default function SignUp() {
+function SignUp() {
   const navigation = useNavigation();
   const [secureTextEntry, setSecureTextEntry] = useState(true);
   const [acceptTerms, setAcceptTerms] = useState(false);
@@ -26,27 +26,37 @@ export default function SignUp() {
     repeatPassword: '',
   };
 
-  const handleSignUp = async (values: { email: string; repeatEmail: string; password: string; repeatPassword: string }) => {
-
+  const handleSignUp = async (values: {
+    email: string;
+    repeatEmail: string;
+    password: string;
+    repeatPassword: string
+  }) => {
     console.log('Email:', values.email);
     console.log('Repeat Email:', values.repeatEmail);
     console.log('Password:', values.password);
     console.log('Confirm Password:', values.repeatPassword);
     console.log('Accept Terms:', acceptTerms);
+
     if (!acceptTerms) {
-      Alert.alert('Términos y Condiciones', 'Debe aceptar los términos y condiciones para crear una cuenta.');
+      Alert.alert(
+        'Términos y Condiciones',
+        'Debe aceptar los términos y condiciones para crear una cuenta.'
+      );
       return;
     }
 
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, values.email, values.password);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        values.email,
+        values.password
+      );
       const user: User | null = userCredential.user;
 
       if (user) {
-        // const userRef = ref(db, 'users/' + user.uid);
         const userRef = doc(collection(firestore, 'users'), user.uid);
         console.log('UID:', user.uid);
-
         const idToken = await user.getIdToken();
         console.log('ID Token:', idToken);
 
@@ -54,9 +64,9 @@ export default function SignUp() {
           email: user.email,
           createdAt: new Date().toISOString(),
         });
-
         console.log('Datos del usuario guardados en la base de datos.');
         Alert.alert('Cuenta creada', 'La cuenta se ha creado correctamente.');
+
       }
     } catch (error) {
       console.error('Error al crear cuenta:', error);
@@ -72,6 +82,7 @@ export default function SignUp() {
   const toggleAcceptTerms = () => {
     setAcceptTerms(!acceptTerms);
   };
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#FFFFFF', dark: '#353636' }}
@@ -86,7 +97,10 @@ export default function SignUp() {
           validateOnChange={true}
           validateOnBlur={true}
         >
-          {({ handleChange, handleBlur, handleSubmit, values, errors, touched, isValid }) => {
+          {({
+            handleChange, handleBlur, handleSubmit,
+            values, errors, touched, isValid
+          }) => {
             const isFormValid = isValid && acceptTerms;
 
             return (
@@ -191,3 +205,5 @@ const styles = StyleSheet.create({
     borderBottomColor: '#00C114',
   }
 });
+
+export { SignUp };

@@ -1,11 +1,9 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
-import { Image } from 'react-native';
 
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
-import { CreateAccountScreen } from '@/app/(tabs)/CreateAccountScreen';
 import { TabLabel } from '@/components/TabLabel';
 
 export default function TabLayout() {
@@ -34,6 +32,7 @@ export default function TabLayout() {
             <TabBarIcon name={focused ? 'person' : 'person-outline'} color={color} />
           ),
         }}
+
       />
       <Tabs.Screen
         name="learnIdun"
@@ -44,7 +43,10 @@ export default function TabLayout() {
           ),
         }}
       />
-
-    </Tabs>
+      <Tabs.Screen
+        name="Welcome"
+        initialParams={{ email: '' }}
+      />
+    </Tabs >
   );
 }
